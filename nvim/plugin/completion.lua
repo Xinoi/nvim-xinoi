@@ -91,7 +91,7 @@ cmp.setup {
         complete_with_source('path')
       end
     end, { 'i', 'c', 's' }),
-    ['<C-n>'] = cmp.mapping(function(fallback)
+    ['<C-Space>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       -- expand_or_jumpable(): Jump outside the snippet region

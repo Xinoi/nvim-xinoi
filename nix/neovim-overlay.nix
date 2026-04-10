@@ -97,6 +97,7 @@ with final.pkgs.lib; let
     nil # nix LSP
     rust-analyzer
     rustc
+    cargo
   ];
 in {
   # This is the neovim derivation
