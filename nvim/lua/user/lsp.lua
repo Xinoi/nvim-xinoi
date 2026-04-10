@@ -21,3 +21,4 @@ function M.make_client_capabilities()
 end
 
 return M
+

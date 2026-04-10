@@ -87,12 +87,15 @@ with final.pkgs.lib; let
     rose-pine
     alpha-nvim
     oil-nvim
+    fidget-nvim
+    nvim-lspconfig
   ];
 
   extraPackages = with pkgs; [
     # language servers, etc.
     lua-language-server
     nil # nix LSP
+    rust-analyzer
   ];
 in {
   # This is the neovim derivation

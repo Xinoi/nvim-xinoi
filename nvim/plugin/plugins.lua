@@ -14,4 +14,5 @@ require('alpha').setup(require('alpha.themes.dashboard').config)
 require("oil").setup({
   prompt_save_on_select_new_entry = true,
 })
+require('fidget').setup({})
 
