@@ -101,19 +101,14 @@ keymap.set('n', '<leader>w-', function()
   local curWinWidth = api.nvim_win_get_width(0)
   api.nvim_win_set_width(0, toIntegral(curWinWidth * 2 / 3))
 end, { silent = true, desc = 'dec window [w]idth' })
-keymap.set('n', '<leader>h+', function()
+keymap.set('n', '<leader>wh+', function()
   local curWinHeight = api.nvim_win_get_height(0)
   api.nvim_win_set_height(0, toIntegral(curWinHeight * 3 / 2))
 end, { silent = true, desc = 'inc window [h]eight' })
-keymap.set('n', '<leader>h-', function()
+keymap.set('n', '<leader>wh-', function()
   local curWinHeight = api.nvim_win_get_height(0)
   api.nvim_win_set_height(0, toIntegral(curWinHeight * 2 / 3))
 end, { silent = true, desc = 'dec window [h]eight' })
-
--- Close floating windows [Neovim 0.10 and above]
-keymap.set('n', '<leader>fq', function()
-  vim.cmd('fclose!')
-end, { silent = true, desc = '[f]loating windows: [q]uit/close all' })
 
 -- Remap Esc to switch to normal mode and Ctrl-Esc to pass Esc to terminal
 keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'switch to normal mode' })
@@ -174,13 +169,6 @@ keymap.set('n', ']h', function()
   }
 end, { noremap = true, silent = true, desc = 'next [h]int diagnostic' })
 
-local function buf_toggle_diagnostics()
-  local filter = { bufnr = api.nvim_get_current_buf() }
-  diagnostic.enable(not diagnostic.is_enabled(filter), filter)
-end
-
-keymap.set('n', '<space>dt', buf_toggle_diagnostics)
-
 local function toggle_spell_check()
   ---@diagnostic disable-next-line: param-type-mismatch
   vim.opt.spell = not (vim.opt.spell:get())
@@ -205,3 +193,15 @@ keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'move UP full-page and center' })
 --     vim.opt.hlsearch = vim.tbl_contains({ '<CR>', 'n', 'N', '*', '#', '?', '/' }, vim.fn.keytrans(char))
 --   end
 -- end, auto_hlsearch_namespace)
+
+-- ------
+
+-- Oil
+vim.keymap.set("n", "<leader>e", function()
+  local oil = require("oil")
+  if vim.bo.filetype == "oil" then
+    oil.close()
+  else
+    oil.toggle_float()
+  end
+end, { desc = "Toggle oil" })

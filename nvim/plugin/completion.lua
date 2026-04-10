@@ -26,7 +26,7 @@ end
 
 cmp.setup {
   completion = {
-    completeopt = 'menu,menuone,noinsert',
+    completeopt = 'menu,menuone,noselect',
     -- autocomplete = false,
   },
   formatting = {
@@ -53,6 +53,30 @@ cmp.setup {
     end,
   },
   mapping = {
+    -- Tab = nächste Option
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_locally_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+
+    -- Shift+Tab = vorherige Option
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+
     ['<C-b>'] = cmp.mapping(function(_)
       if cmp.visible() then
         cmp.scroll_docs(-4)

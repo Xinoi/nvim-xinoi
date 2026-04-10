@@ -69,40 +69,20 @@ local function fuzzy_grep_current_file_type()
   grep_current_file_type(fuzzy_grep)
 end
 
-vim.keymap.set('n', '<leader>tp', function()
+vim.keymap.set('n', '<leader>ff', function()
   builtin.find_files()
-end, { desc = '[t]elescope find files - ctrl[p] style' })
-vim.keymap.set('n', '<M-p>', builtin.oldfiles, { desc = '[telescope] old files' })
-vim.keymap.set('n', '<C-g>', builtin.live_grep, { desc = '[telescope] live grep' })
-vim.keymap.set('n', '<leader>tf', fuzzy_grep, { desc = '[t]elescope [f]uzzy grep' })
-vim.keymap.set('n', '<M-f>', fuzzy_grep_current_file_type, { desc = '[telescope] fuzzy grep filetype' })
-vim.keymap.set('n', '<M-g>', live_grep_current_file_type, { desc = '[telescope] live grep filetype' })
+end, { desc = '[f]ind files' })
+vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = '[f]ind [o]ld files' })
+vim.keymap.set('n', '<leader><Space>', builtin.live_grep, { desc = '[telescope] live grep' })
+vim.keymap.set('n', '<leader>fg', fuzzy_grep, { desc = '[f]uzzy [g]rep' })
+vim.keymap.set('n', '<leader>fF', live_grep_current_file_type, { desc = 'live grep filetype' })
 vim.keymap.set(
   'n',
-  '<leader>t*',
+  '<leader>f*',
   grep_string_current_file_type,
   { desc = '[t]elescope grep current string [*] in current filetype' }
 )
-vim.keymap.set('n', '<leader>*', builtin.grep_string, { desc = '[telescope] grep current string [*]' })
-vim.keymap.set('n', '<leader>tg', project_files, { desc = '[t]elescope project files [g]' })
-vim.keymap.set('n', '<leader>tc', builtin.quickfix, { desc = '[t]elescope quickfix list [c]' })
-vim.keymap.set('n', '<leader>tq', builtin.command_history, { desc = '[t]elescope command history [q]' })
-vim.keymap.set('n', '<leader>tl', builtin.loclist, { desc = '[t]elescope [l]oclist' })
-vim.keymap.set('n', '<leader>tr', builtin.registers, { desc = '[t]elescope [r]egisters' })
-vim.keymap.set('n', '<leader>tbb', builtin.buffers, { desc = '[t]elescope [b]uffers [b]' })
-vim.keymap.set(
-  'n',
-  '<leader>tbf',
-  builtin.current_buffer_fuzzy_find,
-  { desc = '[t]elescope current [b]uffer [f]uzzy find' }
-)
-vim.keymap.set('n', '<leader>td', builtin.lsp_document_symbols, { desc = '[t]elescope lsp [d]ocument symbols' })
-vim.keymap.set(
-  'n',
-  '<leader>to',
-  builtin.lsp_dynamic_workspace_symbols,
-  { desc = '[t]elescope lsp dynamic w[o]rkspace symbols' }
-)
+vim.keymap.set('n', '<leader>fd', builtin.lsp_document_symbols, { desc = 'telescope lsp [d]ocument symbols' })
 
 telescope.setup {
   defaults = {
