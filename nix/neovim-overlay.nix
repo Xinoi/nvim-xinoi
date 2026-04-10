@@ -96,6 +96,7 @@ with final.pkgs.lib; let
     lua-language-server
     nil # nix LSP
     rust-analyzer
+    rustc
   ];
 in {
   # This is the neovim derivation
