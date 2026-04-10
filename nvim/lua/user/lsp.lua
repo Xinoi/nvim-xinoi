@@ -20,5 +20,18 @@ function M.make_client_capabilities()
   return capabilities
 end
 
+function M.start(name, cmd, root_files, extra)
+  if vim.fn.executable(cmd[1]) ~= 1 then return end
+  vim.lsp.start(vim.tbl_extend('keep', extra or {}, {
+    name = name,
+    cmd = cmd,
+    root_dir = vim.fs.dirname(
+      vim.fs.find(root_files, { upward = true })[1]
+    ) or vim.fn.expand('%:p:h'),
+    capabilities = M.make_client_capabilities(),
+  }))
+end
+
 return M
+
 
