@@ -4,12 +4,14 @@ require('render-markdown').setup({
 })
 
 require("obsidian").setup({
-    workspaces = {
-      {
-        name = "personal",
-        path = "~/Seafile/Main/Notes",
-      },
+  ui = { enable = false },
+  legacy_commands = false,
+  workspaces = {
+    {
+      name = "personal",
+      path = "~/Seafile/Main/Notes",
     },
+  },
 })
 
 require("image").setup({
