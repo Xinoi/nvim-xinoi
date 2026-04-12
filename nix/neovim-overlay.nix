@@ -89,6 +89,9 @@ with final.pkgs.lib; let
     oil-nvim
     fidget-nvim
     nvim-lspconfig
+    render-markdown-nvim
+    obsidian-nvim
+    image-nvim
   ];
 
   extraPackages = with pkgs; [
@@ -98,6 +101,8 @@ with final.pkgs.lib; let
     rust-analyzer
     rustc
     cargo
+    # other
+    imagemagick
   ];
 in {
   # This is the neovim derivation
