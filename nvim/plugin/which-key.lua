@@ -11,4 +11,5 @@ require('which-key').add({
   { "<leader>t", group = "terminal" },
   { "<leader>w", group = "window" },
   { "<leader>wh", group = "window height" },
+  { "<leader>o", group = "obsidian" },
 })

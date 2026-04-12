@@ -205,3 +205,17 @@ vim.keymap.set("n", "<leader>e", function()
     oil.toggle_float()
   end
 end, { desc = "Toggle oil" })
+
+-- obsidian
+vim.keymap.set("n", "<leader>on", "<cmd>Obsidian new<cr>",        { desc = "Neue Note" })
+vim.keymap.set("n", "<leader>oq", "<cmd>Obsidian quick_switch<cr>",   { desc = "switch to other notes quickly" })
+vim.keymap.set("n", "<leader>ot", "<cmd>Obsidian tags<cr>",       { desc = "Tags suchen" })
+vim.keymap.set("n", "<leader>od", "<cmd>Obsidian dailies<cr>",      { desc = "Daily Note" })
+vim.keymap.set("n", "<leader>os", "<cmd>Obsidian search<cr>",     { desc = "In Notes suchen" })
+vim.keymap.set("n", "<leader>ow", "<cmd>Obsidian workspace<cr>",      { desc = "Obsidian Workspace" })
+vim.keymap.set("n", "<leader>oT", "<cmd>Obsidian new_from_template", { desc = "New Note from template"})
+vim.keymap.set("n", "<leader>ob", "<cmd>Obsidian backlinks <CR>", { desc = "Show all backlinks in note"})
+vim.keymap.set("n", "<leader>oe", "<cmd>Obsidian follow_link <CR>", { desc = "follow link"})
+vim.keymap.set("n", "<leader>op", "<cmd>Obsidian paste_img <CR>", { desc = "paste image from clipboard"})
+vim.keymap.set("n", "<leader>oc", "<cmd>Obsidian toggle_checkbox <CR>", { desc = "toggle checkbox under cursor"})
+
