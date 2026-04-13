@@ -9,7 +9,7 @@ require("obsidian").setup({
   workspaces = {
     {
       name = "personal",
-      path = "~/Seafile/Main/Notes",
+      path = "~/Xinoi_Files/My Library/Notes",
     },
   },
   -- note_id_func: Titel als Dateiname statt zufälliger Zettel-ID
