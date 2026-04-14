@@ -103,6 +103,7 @@ with final.pkgs.lib; let
     cargo
     # other
     imagemagick
+    python314Packages.pylatex
   ];
 in {
   # This is the neovim derivation
