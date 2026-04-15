@@ -7,7 +7,7 @@ require('render-markdown').setup({
         converter = { 'utftex', 'latex2text' },
         highlight = 'RenderMarkdownMath',
         position = 'center',
-        top_pad = 0,
+        top_pad = 1,
         bottom_pad = 0,
     },
 })
