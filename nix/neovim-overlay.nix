@@ -101,6 +101,7 @@ with final.pkgs.lib; let
     rust-analyzer
     rustc
     cargo
+    pyright
     # other
     imagemagick
     python313Packages.pylatexenc
